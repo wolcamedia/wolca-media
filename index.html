@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///C:/Users/Focus/Downloads/index.html.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wolca Media – Ghana's Voice, Africa's Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --black: #0B0808;
+    --white: #FFFFFF;
+    --orange: #FF5A1F;
+    --orange-dark: #e04a10;
+    --orange-glow: rgba(255,90,31,0.18);
+    --grey: #1a1818;
+    --grey2: #252222;
+    --grey3: #3a3636;
+    --text-muted: #9a9090;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--grey2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 60px;
+    gap: 24px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  /* SVG Logo Mark */
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .logo-wordmark span {
+    color: var(--orange);
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--white);
+    background: var(--grey2);
+  }
+
+  .nav-links a.active {
+    color: var(--orange);
+    background: transparent;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .nav-search {
+    display: flex;
+    align-items: center;
+    background: var(--grey2);
+    border: 1px solid var(--grey3);
+    border-radius: 4px;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .nav-search input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    width: 160px;
+  }
+
+  .nav-search input::placeholder { color: var(--text-muted); }
+
+  .btn-subscribe {
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-subscribe:hover {
+    background: var(--orange-dark);
+    transform: translateY(-1px);
+  }
+
+  /* ─── BREAKING NEWS TICKER ─── */
+  .breaking-bar {
+    background: var(--orange);
+    display: flex;
+    align-items: center;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  .breaking-tag {
+    background: var(--black);
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    padding: 0 18px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .breaking-tag::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 10px solid var(--black);
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+  }
+
+  .ticker-wrap {
+    flex: 1;
+    overflow: hidden;
+    padding-left: 20px;
+  }
+
+  .ticker {
+    display: flex;
+    gap: 60px;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--black);
+    white-space: nowrap;
+  }
+
+  .ticker span::before {
+    content: '●';
+    margin-right: 10px;
+    opacity: 0.5;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ─── HERO / TOP HEADLINES ─── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    grid-template-rows: auto auto;
+    gap: 2px;
+    background: var(--grey2);
+    border-bottom: 2px solid var(--grey2);
+  }
+
+  .hero-main {
+    grid-row: 1 / 3;
+    position: relative;
+    overflow: hidden;
+    min-height: 520px;
+    cursor: pointer;
+  }
+
+  .hero-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .hero-main:hover img { transform: scale(1.03); }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11,8,8,0.96) 0%, rgba(11,8,8,0.5) 50%, transparent 100%);
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 36px;
+  }
+
+  .hero-cat {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .hero-meta .dot { color: var(--orange); }
+
+  /* Secondary hero cards */
+  .hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-card {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    min-height: 180px;
+    cursor: pointer;
+  }
+
+  .hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .hero-card:hover img { transform: scale(1.05); }
+
+  .hero-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11,8,8,0.92) 0%, transparent 60%);
+  }
+
+  .hero-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 18px 20px;
+  }
+
+  .hero-card-cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 6px;
+  }
+
+  .hero-card-title {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 56px 32px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .section-header h2 {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  }
+
+  .section-header .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--grey3), transparent);
+  }
+
+  .section-header .view-all {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .section-header .view-all:hover { opacity: 0.7; }
+
+  /* ─── NEWS GRID ─── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .news-card {
+    cursor: pointer;
+    group: true;
+  }
+
+  .news-card-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    margin-bottom: 14px;
+    background: var(--grey2);
+  }
+
+  .news-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .news-card:hover .news-card-img img { transform: scale(1.06); }
+
+  .news-card-cat {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+  }
+
+  .news-card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+
+  .news-card:hover h3 { color: var(--orange); }
+
+  .news-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .news-card-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--grey3);
+    letter-spacing: 0.05em;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .news-card-meta .dot { color: var(--orange); font-size: 6px; }
+
+  /* ─── FEATURED STRIP (Editor's Picks) ─── */
+  .editors-section {
+    background: var(--grey);
+    border-top: 1px solid var(--grey2);
+    border-bottom: 1px solid var(--grey2);
+  }
+
+  .editors-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2px;
+    background: var(--grey2);
+    border: 1px solid var(--grey2);
+  }
+
+  .editor-main {
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+  }
+
+  .editor-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+
+  .editor-main:hover img { transform: scale(1.04); }
+
+  .editor-main-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255,90,31,0.3) 0%, transparent 60%), linear-gradient(to top, rgba(11,8,8,0.95) 0%, transparent 60%);
+  }
+
+  .editor-main-content {
+    position: absolute;
+    bottom: 0;
+    padding: 28px;
+  }
+
+  .editor-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .editor-badge::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--orange);
+    display: inline-block;
+  }
+
+  .editor-main-content h3 {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+
+  .editor-sub {
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor-sub-item {
+    flex: 1;
+    padding: 24px;
+    border-bottom: 1px solid var(--grey2);
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .editor-sub-item:last-child { border-bottom: none; }
+  .editor-sub-item:hover { background: var(--grey2); }
+
+  .editor-sub-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--grey3);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  .editor-sub-text {}
+
+  .editor-sub-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .editor-sub-text h4 {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .editor-sub-text p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ─── TRENDING ─── */
+  .trending-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--grey2);
+  }
+
+  .trending-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--grey2);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .trending-item:last-child { border-bottom: none; }
+  .trending-item:hover { background: var(--grey2); }
+
+  .trending-rank {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--grey3);
+    line-height: 1;
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+  .trending-rank.hot { color: var(--orange); }
+
+  .trending-info { flex: 1; }
+
+  .trending-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .trending-info h4 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.15;
+  }
+
+  .trending-img {
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  /* ─── TWO-COL LAYOUT (Trending + Sidebar) ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* ─── MULTIMEDIA ─── */
+  .multimedia-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .video-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 16/9;
+    background: var(--grey2);
+  }
+
+  .video-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s;
+  }
+
+  .video-card:hover img { transform: scale(1.07); }
+
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11,8,8,0.85) 0%, transparent 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .play-btn {
+    width: 48px;
+    height: 48px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .video-card:hover .play-btn {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .play-btn svg { margin-left: 3px; }
+
+  .video-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 16px;
+  }
+
+  .video-caption h4 {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  /* ─── SIDEBAR WIDGET ─── */
+  .widget {
+    border: 1px solid var(--grey2);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .widget-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--orange);
+    display: inline-block;
+  }
+
+  .widget-news-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--grey2);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .widget-news-item:last-child { border-bottom: none; }
+  .widget-news-item:hover { opacity: 0.75; }
+
+  .widget-news-item img {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .widget-news-item h5 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+
+  .widget-news-item span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+  }
+
+  /* ─── NEWSLETTER ─── */
+  .newsletter-strip {
+    background: var(--orange);
+    padding: 56px 32px;
+  }
+
+  .newsletter-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .newsletter-text h2 {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+
+  .newsletter-text p {
+    color: rgba(11,8,8,0.7);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 8px;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    background: rgba(11,8,8,0.15);
+    border: 2px solid rgba(11,8,8,0.2);
+    padding: 14px 18px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: var(--black);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-form input::placeholder { color: rgba(11,8,8,0.4); }
+  .newsletter-form input:focus { border-color: var(--black); }
+
+  .newsletter-form button {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .newsletter-form button:hover { opacity: 0.85; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--grey);
+    border-top: 1px solid var(--grey2);
+    padding: 56px 32px 32px;
+  }
+
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand p {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 36px;
+    height: 36px;
+    background: var(--grey2);
+    border: 1px solid var(--grey3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .social-link:hover {
+    background: var(--orange);
+    color: var(--white);
+    border-color: var(--orange);
+  }
+
+  .footer-col h5 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--grey2);
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-col ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .footer-col ul li a::before {
+    content: '›';
+    color: var(--orange);
+  }
+
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--grey2);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-legal a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-legal a:hover { color: var(--orange); }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--grey3), transparent);
+    margin: 0 32px;
+  }
+
+  /* ─── CATEGORY PILLS NAV ─── */
+  .cat-nav {
+    background: var(--grey);
+    border-bottom: 1px solid var(--grey2);
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .cat-nav a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 12px 18px;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .cat-nav a:hover { color: var(--white); }
+  .cat-nav a.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+  /* ─── PAGE LOAD ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero { animation: fadeUp 0.6s ease both; }
+  .section { animation: fadeUp 0.6s ease both 0.1s; }
+
+  /* ─── PLACEHOLDER IMAGES (colored blocks) ─── */
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="nav-logo">
+    <!-- W/ Logo Mark SVG -->
+    <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 6 L12 34 L20 14 L28 34 L36 6 H30 L24 22 L20 10 L16 22 L10 6 Z" fill="white"></path>
+      <path d="M22 6 L30 6 L26 20 Z" fill="#FF5A1F"></path>
+    </svg>
+    <div class="logo-wordmark">WOLCA<span>MEDIA</span></div>
+  </a>
+
+  <div class="nav-links">
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="active">Home</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Ghana</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Africa</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Politics</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Business</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Sports</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Entertainment</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Tech</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Health</a>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Opinion</a>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9a9090" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" placeholder="Search news...">
+    </div>
+    <button class="btn-subscribe">Subscribe</button>
+  </div>
+</nav>
+
+<!-- ─── CATEGORY NAV ─── -->
+<div class="cat-nav">
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="active">All</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Top Stories</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Breaking</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Ghana</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Africa</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">World</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Politics</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Economy</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Sports</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Entertainment</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Youth</a>
+  <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Community</a>
+</div>
+
+<!-- ─── BREAKING NEWS TICKER ─── -->
+<div class="breaking-bar">
+  <div class="breaking-tag">🔴 Breaking</div>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Ghana's inflation rate drops to 18.4% — lowest in two years</span>
+      <span>African Union summit opens in Addis Ababa with 54 heads of state</span>
+      <span>Black Stars qualify for AFCON 2025 after victory over Angola</span>
+      <span>Ghana Parliament approves new infrastructure spending bill</span>
+      <span>Oil prices surge as OPEC+ announces production cuts</span>
+      <span>Youth unemployment hits record lows in Accra according to GSS report</span>
+      <!-- duplicate for seamless loop -->
+      <span>Ghana's inflation rate drops to 18.4% — lowest in two years</span>
+      <span>African Union summit opens in Addis Ababa with 54 heads of state</span>
+      <span>Black Stars qualify for AFCON 2025 after victory over Angola</span>
+      <span>Ghana Parliament approves new infrastructure spending bill</span>
+      <span>Oil prices surge as OPEC+ announces production cuts</span>
+      <span>Youth unemployment hits record lows in Accra according to GSS report</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── HERO HEADLINES ─── -->
+<div class="hero">
+  <!-- Main Feature -->
+  <div class="hero-main">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1010 0%,#2a1500 40%,#1a0800 100%);position:absolute;"></div>
+    <!-- Simulated editorial photo feel -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.08" viewBox="0 0 800 520">
+      <defs><pattern id="g" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="#FF5A1F"></circle></pattern></defs>
+      <rect width="800" height="520" fill="url(#g)"></rect>
+    </svg>
+    <div style="position:absolute;right:0;top:0;bottom:0;width:60%;background:linear-gradient(to left,rgba(255,90,31,0.07),transparent)"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-cat">Ghana · Politics</div>
+      <h1 class="hero-title">President Announces<br>Major Economic<br>Reform Package</h1>
+      <div class="hero-meta">
+        <span>By Kwame Asante</span>
+        <span class="dot">●</span>
+        <span>2 hours ago</span>
+        <span class="dot">●</span>
+        <span>6 min read</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side Cards -->
+  <div class="hero-side">
+    <div class="hero-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1a0d,#0a1a08);position:absolute;"></div>
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.1" viewBox="0 0 380 200"><rect width="380" height="200" fill="#1a3a1a"></rect></svg>
+      <div class="hero-card-overlay"></div>
+      <div class="hero-card-content">
+        <div class="hero-card-cat">Sports</div>
+        <h2 class="hero-card-title">Black Stars Clinch AFCON Spot in Dramatic Finale</h2>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d0d1a,#08081a);position:absolute;"></div>
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.1" viewBox="0 0 380 200"><rect width="380" height="200" fill="#1a1a3a"></rect></svg>
+      <div class="hero-card-overlay"></div>
+      <div class="hero-card-content">
+        <div class="hero-card-cat">Business</div>
+        <h2 class="hero-card-title">Accra Tech Hub Secures $40M Investment From Silicon Valley</h2>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0d0d,#1a0808);position:absolute;"></div>
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.1" viewBox="0 0 380 200"><rect width="380" height="200" fill="#3a1a1a"></rect></svg>
+      <div class="hero-card-overlay"></div>
+      <div class="hero-card-content">
+        <div class="hero-card-cat">Africa</div>
+        <h2 class="hero-card-title">AU Summit Sets New Pan-African Trade Framework</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TOP STORIES GRID ─── -->
+<div class="section" style="padding-bottom: 24px;">
+  <div class="section-header">
+    <span class="label">Top Stories</span>
+    <h2>Latest News</h2>
+    <div class="line"></div>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="view-all">View All →</a>
+  </div>
+
+  <div class="news-grid">
+    <!-- Card 1 -->
+    <div class="news-card">
+      <div class="news-card-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#1a1200,#2a1800);">Ghana · Economy</div>
+        <div class="news-card-cat">Economy</div>
+      </div>
+      <h3>Ghana Cedi Gains Strength as IMF Approves Next Tranche of Support</h3>
+      <p>The Ghana cedi posted its strongest weekly performance in eight months as international lenders signal continued confidence in the reform programme.</p>
+      <div class="news-card-meta">
+        <span>Apr 9, 2026</span>
+        <span class="dot">●</span>
+        <span>4 min read</span>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="news-card">
+      <div class="news-card-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#001a10,#001208);">Health</div>
+        <div class="news-card-cat">Health</div>
+      </div>
+      <h3>New Teaching Hospital Opens in Northern Region, Serving 2 Million People</h3>
+      <p>A state-of-the-art facility brings specialist care to communities that previously had to travel hours for medical attention.</p>
+      <div class="news-card-meta">
+        <span>Apr 9, 2026</span>
+        <span class="dot">●</span>
+        <span>3 min read</span>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="news-card">
+      <div class="news-card-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#0a001a,#060010);">Tech</div>
+        <div class="news-card-cat">Tech</div>
+      </div>
+      <h3>Ghana Launches National AI Strategy With Plans to Train 100,000 Youth</h3>
+      <p>The government's ambitious digital initiative aims to make Ghana a continental hub for artificial intelligence development by 2028.</p>
+      <div class="news-card-meta">
+        <span>Apr 8, 2026</span>
+        <span class="dot">●</span>
+        <span>5 min read</span>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="news-card">
+      <div class="news-card-img">
+        <div class="img-placeholder" style="background:linear-gradient(135deg,#1a0500,#120300);">Entertainment</div>
+        <div class="news-card-cat">Entertainment</div>
+      </div>
+      <h3>Afrobeats Star Stonebwoy Breaks Streaming Records With New Album</h3>
+      <p>The Ghanaian artist's latest release topped charts across 22 countries within 48 hours of dropping, cementing Africa's global music dominance.</p>
+      <div class="news-card-meta">
+        <span>Apr 8, 2026</span>
+        <span class="dot">●</span>
+        <span>3 min read</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ─── EDITOR'S PICKS ─── -->
+<div class="editors-section">
+  <div class="section">
+    <div class="section-header">
+      <span class="label">Curated</span>
+      <h2>Editor's Picks</h2>
+      <div class="line"></div>
+      <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="view-all">View All →</a>
+    </div>
+
+    <div class="editors-grid">
+      <div class="editor-main">
+        <div style="width:100%;height:100%;background:linear-gradient(160deg,#1a0800 0%,#0d0500 50%,#1a0d00 100%);position:absolute;"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.12" viewBox="0 0 600 400">
+          <defs><radialgradient id="rg"><stop offset="0%" stop-color="#FF5A1F" stop-opacity="0.4"></stop><stop offset="100%" stop-color="transparent"></stop></radialgradient></defs>
+          <circle cx="500" cy="100" r="200" fill="url(#rg)"></circle>
+        </svg>
+        <div class="editor-main-overlay"></div>
+        <div class="editor-main-content">
+          <div class="editor-badge">In-Depth Analysis</div>
+          <h3>Why Ghana's Youth Are Rewriting The Rules of African Politics</h3>
+          <p style="color:var(--text-muted);font-size:13px;margin-top:10px;line-height:1.6;">A generation raised on social media is demanding transparency, accountability, and speed — and politicians are finally listening.</p>
+          <div class="news-card-meta" style="margin-top:14px;">
+            <span>By Akosua Mensah</span>
+            <span class="dot">●</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="editor-sub">
+        <div class="editor-sub-item">
+          <div class="editor-sub-num">01</div>
+          <div class="editor-sub-text">
+            <div class="editor-sub-cat">Economy</div>
+            <h4>The Cocoa Crisis: How Climate Change Is Threatening Ghana's Most Valuable Export</h4>
+            <p>Temperatures are rising, yields are falling. Farmers, scientists, and policymakers are racing to find solutions before it's too late.</p>
+          </div>
+        </div>
+        <div class="editor-sub-item">
+          <div class="editor-sub-num">02</div>
+          <div class="editor-sub-text">
+            <div class="editor-sub-cat">Community</div>
+            <h4>Market Women Of Kumasi: The Invisible Engine Powering Ghana's Economy</h4>
+            <p>Millions of transactions happen daily in Ghana's markets — with almost zero formal recognition or government support.</p>
+          </div>
+        </div>
+        <div class="editor-sub-item">
+          <div class="editor-sub-num">03</div>
+          <div class="editor-sub-text">
+            <div class="editor-sub-cat">Africa</div>
+            <h4>Pan-Africanism in 2026: Dream, Reality, or Work in Progress?</h4>
+            <p>From the AfCFTA to the AU's passport, continental unity is moving from rhetoric to policy — but slowly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="editor-sub">
+        <div class="editor-sub-item">
+          <div class="editor-sub-num">04</div>
+          <div class="editor-sub-text">
+            <div class="editor-sub-cat">Politics</div>
+            <h4>Decentralisation: The Policy That Could Transform How Ghana Is Governed</h4>
+            <p>Critics say power is too concentrated in Accra. New proposals aim to shift decision-making to the district level.</p>
+          </div>
+        </div>
+        <div class="editor-sub-item">
+          <div class="editor-sub-num">05</div>
+          <div class="editor-sub-text">
+            <div class="editor-sub-cat">Youth</div>
+            <h4>Meet The 26-Year-Old Building Ghana's First Homegrown Satellite</h4>
+            <p>With a small team and no government funding, Kofi Osei is proving that African innovation doesn't wait for permission.</p>
+          </div>
+        </div>
+        <div class="editor-sub-item">
+          <div class="editor-sub-num">06</div>
+          <div class="editor-sub-text">
+            <div class="editor-sub-cat">Entertainment</div>
+            <h4>How Ghanaian Fashion Conquered The Global Runway This Season</h4>
+            <p>From Accra ateliers to Milan and New York, Ghanaian designers are making the world take notice of African craftsmanship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TRENDING + SIDEBAR ─── -->
+<div class="section">
+  <div class="two-col">
+    <!-- Trending -->
+    <div>
+      <div class="section-header">
+        <span class="label">Popular</span>
+        <h2>Trending Now</h2>
+        <div class="line"></div>
+      </div>
+
+      <div class="trending-list">
+        <div class="trending-item">
+          <div class="trending-rank hot">01</div>
+          <div class="trending-info">
+            <div class="trending-cat">Ghana · Economy</div>
+            <h4>IMF Approves $600M Disbursement as Ghana Meets All Fiscal Targets</h4>
+          </div>
+          <div style="width:90px;height:60px;background:linear-gradient(135deg,#1a1200,#2a1800);flex-shrink:0;"></div>
+        </div>
+        <div class="trending-item">
+          <div class="trending-rank hot">02</div>
+          <div class="trending-info">
+            <div class="trending-cat">Sports</div>
+            <h4>Black Stars Coach Names 23-Man Squad for AFCON Qualifier</h4>
+          </div>
+          <div style="width:90px;height:60px;background:linear-gradient(135deg,#001a10,#001208);flex-shrink:0;"></div>
+        </div>
+        <div class="trending-item">
+          <div class="trending-rank">03</div>
+          <div class="trending-info">
+            <div class="trending-cat">Politics</div>
+            <h4>Parliament Votes on Controversial Anti-Corruption Bill Today</h4>
+          </div>
+          <div style="width:90px;height:60px;background:linear-gradient(135deg,#0d001a,#060010);flex-shrink:0;"></div>
+        </div>
+        <div class="trending-item">
+          <div class="trending-rank">04</div>
+          <div class="trending-info">
+            <div class="trending-cat">Africa</div>
+            <h4>Nigeria and Ghana Sign Historic Cross-Border Trade Agreement</h4>
+          </div>
+          <div style="width:90px;height:60px;background:linear-gradient(135deg,#1a0d00,#1a0800);flex-shrink:0;"></div>
+        </div>
+        <div class="trending-item">
+          <div class="trending-rank">05</div>
+          <div class="trending-info">
+            <div class="trending-cat">Tech</div>
+            <h4>Accra Startup Raises $8M to Digitize Ghana's Healthcare Records</h4>
+          </div>
+          <div style="width:90px;height:60px;background:linear-gradient(135deg,#001218,#001218);flex-shrink:0;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div>
+      <div class="widget">
+        <div class="widget-title">Must Read</div>
+        <div class="widget-news-item">
+          <div style="width:70px;height:50px;background:linear-gradient(135deg,#1a1000,#201400);flex-shrink:0;"></div>
+          <div>
+            <h5>How the Cedi's Recovery Affects Your Daily Costs</h5>
+            <span>Apr 9, 2026 · 5 min</span>
+          </div>
+        </div>
+        <div class="widget-news-item">
+          <div style="width:70px;height:50px;background:linear-gradient(135deg,#001a08,#001408);flex-shrink:0;"></div>
+          <div>
+            <h5>Explainer: What Is The AfCFTA and Why Should You Care?</h5>
+            <span>Apr 8, 2026 · 7 min</span>
+          </div>
+        </div>
+        <div class="widget-news-item">
+          <div style="width:70px;height:50px;background:linear-gradient(135deg,#0a001a,#060010);flex-shrink:0;"></div>
+          <div>
+            <h5>Youth Voter Registration Hits Record 4.2 Million in Q1 2026</h5>
+            <span>Apr 7, 2026 · 3 min</span>
+          </div>
+        </div>
+        <div class="widget-news-item">
+          <div style="width:70px;height:50px;background:linear-gradient(135deg,#1a0500,#120300);flex-shrink:0;"></div>
+          <div>
+            <h5>Inside Ghana's Growing Film Industry: From Kumawood to the World</h5>
+            <span>Apr 6, 2026 · 8 min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="widget">
+        <div class="widget-title">Did You Know?</div>
+        <div style="background:var(--grey2);padding:20px;border-left:3px solid var(--orange);">
+          <p style="font-family:&#39;Barlow Condensed&#39;,sans-serif;font-size:22px;font-weight:800;line-height:1.2;margin-bottom:10px;">"Ghana was the first sub-Saharan African country to gain independence — on March 6, 1957."</p>
+          <p style="font-size:12px;color:var(--text-muted);">Fact-checked by Wolca Media Research Desk</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ─── MULTIMEDIA ─── -->
+<div class="section" style="background:var(--grey);">
+  <div class="section-header">
+    <span class="label">Watch &amp; Listen</span>
+    <h2>Multimedia</h2>
+    <div class="line"></div>
+    <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="view-all">All Videos →</a>
+  </div>
+
+  <div class="multimedia-grid">
+    <div class="video-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00,#2a1000);position:absolute;"></div>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
+        </div>
+      </div>
+      <div class="video-caption">
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:9px;color:var(--orange);letter-spacing:0.15em;margin-bottom:4px;">TOP STORIES</div>
+        <h4>Ghana Economy Watch: April 2026 Review</h4>
+      </div>
+    </div>
+    <div class="video-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#001a10,#001508);position:absolute;"></div>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
+        </div>
+      </div>
+      <div class="video-caption">
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:9px;color:var(--orange);letter-spacing:0.15em;margin-bottom:4px;">DID YOU KNOW?</div>
+        <h4>The Truth Behind Ghana's Cocoa Industry</h4>
+      </div>
+    </div>
+    <div class="video-card">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a001a,#060015);position:absolute;"></div>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"></polygon></svg>
+        </div>
+      </div>
+      <div class="video-caption">
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:9px;color:var(--orange);letter-spacing:0.15em;margin-bottom:4px;">THE TRUTH BEHIND THIS</div>
+        <h4>Are African Leaders Really Listening to the Youth?</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── NEWSLETTER ─── -->
+<div class="newsletter-strip">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <h2>Stay Informed.<br>Stay Ahead.</h2>
+      <p>Get Ghana's most reliable news delivered to your inbox — fact-checked, clear, and concise. No spam, ever.</p>
+    </div>
+    <div>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address">
+        <button>Subscribe Free</button>
+      </div>
+      <p style="font-size:12px;color:rgba(11,8,8,0.5);margin-top:10px;font-family:&#39;DM Mono&#39;,monospace;">Join 48,000+ readers. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="nav-logo" style="display:inline-flex;margin-bottom:4px;">
+          <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 6 L12 34 L20 14 L28 34 L36 6 H30 L24 22 L20 10 L16 22 L10 6 Z" fill="white"></path>
+            <path d="M22 6 L30 6 L26 20 Z" fill="#FF5A1F"></path>
+          </svg>
+          <div class="logo-wordmark">WOLCA<span>MEDIA</span></div>
+        </a>
+        <p>Reliable, fact-checked news from Ghana and across Africa. We connect local realities to global events, prioritising clarity, accuracy, and the voices that matter.</p>
+        <div class="social-links">
+          <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="social-link">X</a>
+          <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="social-link">IG</a>
+          <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="social-link">FB</a>
+          <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="social-link">YT</a>
+          <a href="file:///C:/Users/Focus/Downloads/index.html.html#" class="social-link">TK</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Sections</h5>
+        <ul>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Ghana</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Africa</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">World</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Politics</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Business</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Sports</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Entertainment</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Tech</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">About Wolca Media</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Our Team</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Editorial Standards</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Fact-Checking Policy</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Careers</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Advertise</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Send a News Tip</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Reader Letters</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Corrections</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">General Enquiries</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Community Guidelines</a></li>
+          <li><a href="file:///C:/Users/Focus/Downloads/index.html.html#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Wolca Media. All rights reserved. Ghana's Voice. Africa's Story.</p>
+      <div class="footer-legal">
+        <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Privacy Policy</a>
+        <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Terms of Use</a>
+        <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Cookie Settings</a>
+        <a href="file:///C:/Users/Focus/Downloads/index.html.html#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
