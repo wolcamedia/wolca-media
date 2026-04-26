@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/Focus/Downloads/article%20(2).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wolca Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./article_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --black: #0B0808;
+    --white: #FFFFFF;
+    --orange: #FF5A1F;
+    --orange-dark: #e04a10;
+    --grey: #1a1818;
+    --grey2: #252222;
+    --grey3: #3a3636;
+    --text-muted: #9a9090;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,8,8,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--grey2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 60px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-mark { width: 36px; height: 36px; }
+
+  .logo-wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .logo-wordmark span {
+    color: var(--orange);
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+  }
+
+  .back-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover { color: var(--orange); }
+
+  /* ─── ARTICLE HERO ─── */
+  .article-hero {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: var(--grey2);
+  }
+
+  .article-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .article-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11,8,8,1) 0%, rgba(11,8,8,0.5) 50%, transparent 100%);
+  }
+
+  .article-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  /* ─── ARTICLE BODY ─── */
+  .article-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  .article-cat {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    margin-bottom: 16px;
+  }
+
+  .article-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--grey2);
+    flex-wrap: wrap;
+  }
+
+  .article-meta .dot { color: var(--orange); }
+
+  .article-body {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .article-body p {
+    margin-bottom: 24px;
+  }
+
+  .article-body h2, .article-body h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 36px 0 16px;
+    color: var(--white);
+  }
+
+  .article-body h2 { font-size: 28px; }
+  .article-body h3 { font-size: 22px; }
+
+  .article-body strong { color: var(--white); font-weight: 700; }
+
+  .article-body em { color: var(--orange); font-style: italic; }
+
+  .article-body ul, .article-body ol {
+    margin: 0 0 24px 24px;
+  }
+
+  .article-body li { margin-bottom: 10px; }
+
+  .article-body blockquote {
+    border-left: 3px solid var(--orange);
+    padding: 16px 24px;
+    background: var(--grey2);
+    margin: 32px 0;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+
+  /* ─── SHARE BAR ─── */
+  .share-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--grey2);
+  }
+
+  .share-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .share-btn {
+    padding: 8px 18px;
+    border: 1px solid var(--grey3);
+    background: var(--grey2);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .share-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  /* ─── LOADING ─── */
+  .loading {
+    text-align: center;
+    padding: 100px 32px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+  }
+
+  .loading::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--orange);
+    margin: 16px auto 0;
+    animation: pulse 1s ease infinite alternate;
+  }
+
+  @keyframes pulse {
+    from { opacity: 0.3; transform: scaleX(0.5); }
+    to { opacity: 1; transform: scaleX(1); }
+  }
+
+  /* ─── FOOTER ─── */
+  .article-footer {
+    background: var(--grey);
+    border-top: 1px solid var(--grey2);
+    padding: 24px 32px;
+    text-align: center;
+  }
+
+  .article-footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .article-footer a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .article-hero { height: 300px; }
+    .article-wrapper { padding: 32px 20px 60px; }
+    .article-body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav>
+  <a href="file:///C:/" class="nav-logo">
+    <svg class="logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 6 L12 34 L20 14 L28 34 L36 6 H30 L24 22 L20 10 L16 22 L10 6 Z" fill="white"></path>
+      <path d="M22 6 L30 6 L26 20 Z" fill="#FF5A1F"></path>
+    </svg>
+    <div class="logo-wordmark">WOLCA<span>MEDIA</span></div>
+  </a>
+  <a href="file:///C:/" class="back-link">← Back to Home</a>
+</nav>
+
+<!-- ─── ARTICLE CONTENT ─── -->
+<div id="article-container"><div class="loading">Article not found.</div></div>
+
+<!-- ─── FOOTER ─── -->
+<footer class="article-footer">
+  <p>© 2026 <a href="file:///C:/">Wolca Media</a>. Ghana's Voice. Africa's Story.</p>
+</footer>
+
+<script>
+const GITHUB_USER = 'wolcamedia';
+const GITHUB_REPO = 'wolca-media';
+
+function getQueryParam(name) {
+  const url = new URLSearchParams(window.location.search);
+  return url.get(name);
+}
+
+function parseFrontmatter(text) {
+  const match = text.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return null;
+  const fm = match[1];
+  const body = text.slice(match[0].length).trim();
+
+  const get = (key) => {
+    const m = fm.match(new RegExp(`^${key}:\\s*["']?(.+?)["']?\\s*$`, 'm'));
+    return m ? m[1].trim() : '';
+  };
+
+  return {
+    title: get('title') || 'Untitled',
+    category: get('category'),
+    author: get('author'),
+    date: get('date'),
+    image: get('image'),
+    body: body
+  };
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  try {
+    return new Date(dateStr).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  } catch { return dateStr; }
+}
+
+function markdownToHTML(md) {
+  return md
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+    .split('\n\n')
+    .map(p => p.trim())
+    .filter(p => p && !p.startsWith('<h') && !p.startsWith('<ul') && !p.startsWith('<blockquote'))
+    .map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`)
+    .join('') +
+    md.split('\n\n').filter(p => p.startsWith('#') || p.startsWith('<ul') || p.startsWith('>')).join('');
+}
+
+function renderMarkdown(md) {
+  let html = md;
+  // Headers
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h2>$1</h2>');
+  // Bold / italic
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Blockquote
+  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+  // Lists
+  html = html.replace(/^[-—] (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>');
+  // Paragraphs
+  html = html.split(/\n\n+/).map(block => {
+    block = block.trim();
+    if (!block) return '';
+    if (block.match(/^<(h[1-6]|ul|blockquote)/)) return block;
+    return `<p>${block.replace(/\n/g, '<br>')}</p>`;
+  }).join('\n');
+  return html;
+}
+
+async function loadArticle() {
+  const postFile = getQueryParam('post');
+  if (!postFile) {
+    document.getElementById('article-container').innerHTML = '<div class="loading">Article not found.</div>';
+    return;
+  }
+
+  try {
+    const rawUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/_posts/${postFile}`;
+    const res = await fetch(rawUrl);
+    if (!res.ok) throw new Error('Not found');
+    const text = await res.text();
+    const article = parseFrontmatter(text);
+    if (!article) throw new Error('Parse error');
+
+    document.title = `${article.title} — Wolca Media`;
+
+    const shareUrl = encodeURIComponent(window.location.href);
+    const shareText = encodeURIComponent(article.title + ' — Wolca Media');
+
+    document.getElementById('article-container').innerHTML = `
+      ${article.image ? `
+      <div class="article-hero">
+        <img src="${article.image}" alt="${article.title}">
+        <div class="article-hero-overlay"></div>
+      </div>` : ''}
+
+      <div class="article-wrapper">
+        ${article.category ? `<div class="article-cat">${article.category}</div>` : ''}
+        <h1 class="article-title">${article.title}</h1>
+        <div class="article-meta">
+          ${article.author ? `<span>By ${article.author}</span><span class="dot">●</span>` : ''}
+          <span>${formatDate(article.date)}</span>
+          <span class="dot">●</span>
+          <span>Wolca Media</span>
+        </div>
+        <div class="article-body">
+          ${renderMarkdown(article.body)}
+        </div>
+        <div class="share-bar">
+          <span class="share-label">Share:</span>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}" target="_blank">X / Twitter</a>
+          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank">Facebook</a>
+          <a class="share-btn" href="https://wa.me/?text=${shareText}%20${shareUrl}" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    `;
+  } catch (e) {
+    document.getElementById('article-container').innerHTML = '<div class="loading">Could not load article. Please try again.</div>';
+  }
+}
+
+loadArticle();
+</script>
+
+
+
+</body></html>
